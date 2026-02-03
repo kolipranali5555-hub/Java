@@ -1,0 +1,100 @@
+EmployeeDetails
+Question: Create a table for EmpoyeeDetails
+
+Show databases;
+use batch1299;
+show tables;
+create table EmployeeDetails(em_id int PRIMARY KEY,name varchar(40) NOT NULL, age int ,email varchar(30) UNIQUE  KEY NOT NULL,gender varchar(30),state varchar(40),city varchar(30),MobNo bigint UNIQUE KEY ,dob DATE NOT NULL , salary int,experience varchar(20),department varchar(50),aadharNo bigint UNIQUE KEY ,joiningDate DATE,pancardNo bigint UNIQUE KEY,designation varchar(30));
+
+Desc EmployeeDetails;
+
+Field                  type                      Null        key             Default             extra
+empId           int                         No        PRI              NULL              
+name                 varchar(40)            No                            NULL  
+age                     int                        Yes                           NULL
+email                 varchar(30)            No       UNI              NULL
+gender                varchar(30)           Yes                          NULL
+state                   varchar(40)           Yes                          NULL
+city                     varchar(30)          Yes                           NULL
+MobNO              bigint                   Yes       UNI             NULL
+dob                     date                      No                           NULL
+salary                  int                        Yes                          NULL
+experience           varchar(20)          Yes                         NULL
+department           varchar(50)         Yes                          NULL
+aadharNo              bigint                 Yes       UNI             NULL
+joiningDate          date                    Yes                          NULL
+pancardNo           bigint                  Yes       UNI             NULL
+designation          varchar(30)          Yes                           NULL
+
+
+insert into EmployeeDetails( empId,name,age,email, gender,state,city,MobNo,dob,salary,experience,aadharNo,joiningDate,pancardNo,designation)Values(1,'Pranali',20,'pk56@gmail.com','female','Maharashtra','Pune',6737485657,2006-15-03 ,90000,'3yr','IT',768657667876,2026-01-03,8457978754787,'developer'),(2,'Aooprva',21,'apu34@gamail.com','Female','Maharashtra','Mumbai',5868468546,2004-04-02,70000,'2yr','HR',674564787474,2025-11-07,7856856546856,'Tester'),(3,'Rohit',23,'rohit3@gmail.com','Male','Karnatka','belagum',6578945656,2000-09-08,85000,'2yr,'IT',678906878754,2025-06-12,65767857868796,'software engineer');
+
+
+select*from EmployeeDetails;
+empId      name   age   email                    gender    state               city   MobNo           dob              salary   experience   department   aadharNo     joiningDate    pancardNo    designation   
+1            Pranali  20   pk56@gmail.com   female   Maharashtra    pune   6737485657  2006-15-03  90000    3yr                IT              768657667876     2026-01-03   8457978754787     developer
+
+2           Apoorva  21   apu34@gamail.com female  Maharashtra  Mumbai 5868468546  2004-04-02 70000    2yr               HR             674564787474
+2025-11-07   7856856546856    Tester
+
+3           Rohit    23     rohit3@gmail.com    Male    Karnatka        belagum  6578945656   2000-09-08 85000  2yr             IT                678906878754
+2025-06-12      65767857868796   software engineer
+
+
+
+update EmployeeDetails SET salary=100000 WHERE empId=1;
+1            Pranali  20   pk56@gmail.com   female   Maharashtra    pune   6737485657  2006-15-03  100000    3yr                IT              768657667876     2026-01-03   8457978754787     developer
+
+
+select *from EmployeeDetails WHERE salary BETWEEN 70000 AND 85000;
+2           Apoorva  21   apu34@gamail.com female  Maharashtra  Mumbai 5868468546  2004-04-02 70000    2yr               HR             674564787474
+2025-11-07   7856856546856    Tester
+
+3           Rohit    23     rohit3@gmail.com    Male    Karnatka        belagum  6578945656   2000-09-08 85000  2yr             IT                678906878754
+2025-06-12      65767857868796   software engineer
+
+
+delete from EmployeeDetails WHERE empId=3;
+
+1            Pranali  20   pk56@gmail.com   female   Maharashtra    pune   6737485657  2006-15-03  100000    3yr                IT              768657667876     2026-01-03   8457978754787     developer
+
+2           Apoorva  21   apu34@gamail.com female  Maharashtra  Mumbai 5868468546  2004-04-02 70000    2yr               HR             674564787474
+2025-11-07   7856856546856    Tester
+
+select *from EmplyeeDetails WHERE name like A%;
+
+2           Apoorva  21   apu34@gamail.com female  Maharashtra  Mumbai 5868468546  2004-04-02 70000    2yr               HR             674564787474
+2025-11-07   7856856546856    Tester
+
+
+select *from EmployeeDetails WHERE LIMIT 2;
+
+1            Pranali  20   pk56@gmail.com   female   Maharashtra    pune   6737485657  2006-15-03  100000    3yr                IT              768657667876     2026-01-03   8457978754787     developer
+
+2           Apoorva  21   apu34@gamail.com female  Maharashtra  Mumbai 5868468546  2004-04-02 70000    2yr               HR             674564787474
+2025-11-07   7856856546856    Tester
+
+
+
+Alter table EmployeeDetails RENAME column  email to gmail;
+empId      name   age   gmail                    gender    state               city   MobNo           dob              salary   experience   department   aadharNo     joiningDate    pancardNo    designation   
+
+
+select *from EmployeeDetails ORDER BY salary ASC;
+2           Apoorva  21   apu34@gamail.com female  Maharashtra  Mumbai 5868468546  2004-04-02 70000    2yr               HR             674564787474
+2025-11-07   7856856546856    Tester
+3           Rohit    23     rohit3@gmail.com    Male    Karnatka        belagum  6578945656   2000-09-08 85000  2yr             IT                678906878754
+2025-06-12      65767857868796   software engineer
+1            Pranali  20   pk56@gmail.com   female   Maharashtra    pune   6737485657  2006-15-03  100000    3yr                IT              768657667876     2026-01-03   8457978754787     developer
+
+select MIN (salary) FROM employeeDetails;
+2           Apoorva  21   apu34@gamail.com female  Maharashtra  Mumbai 5868468546  2004-04-02 70000    2yr               HR             674564787474
+2025-11-07   7856856546856    Tester
+
+
+
+
+
+
+
+
