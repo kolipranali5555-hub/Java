@@ -1,0 +1,88 @@
+Programming Session -14/02/2026
+MYSQL Queries
+
+
+password : ****
+show databases;
+use batch425;
+show tables;
+create table books(book_id int primary key AUTO_INCREMENT,title varchar(50)UNIQUE KEY ,author(50)NOT NULL,Language varchar(50),price int);
+desc books;
+
+
+ Field        Type                      Null                      Key                     Default                                 Extra          
+book_id        int                        NO                      PRI                    NULL                              auto_increment 
+title          varchar(50)               YES                      UNI                     NULL                      
+author       varchar(50)                 NO                                               NULL                    
+Language     varchar(50)                YES                                               NULL                   
+price          int                      YES                                               NULL             
+
+
+insert into books(title,author,language,price)values('Ikigi','Hectorgarcia','English'199),('WingsOfFire','Abdul kalam','marathi',215),('Ramayna','valmiki','sanskrit',800),('Ramcharit','Aanandsagar','Hindi',500);
+
+select*from books;
+
+book_id              title             author               Language              price 
+      1              Ikigai            Hectorgarcia      English                  199 
+      2            WingsOfFire          AbdulKalam      Marathi                   299
+      3           Ramayna             valmiki             sanskrit                800 
+      4             Ramcharit        Aanandsagar         Hindi                    500
+
+Alter table books RENAME  to BooksDetails;
+select*from booksdetails;
+book_id              title             author               Language              price
+      1             Ikigai            Hectorgarcia        English                  199
+      2            WingsOfFire         AbdulKalam          Marathi                 299
+      3           Ramayna             valmiki             sanskrit                  800
+      4             Ramcharit        Aanandsagar            Hindi                   500
+
+ select *from booksdetails ORDER BY price ASC;
+book_id              title             author          Language              price
+      1             Ikigai        Hectorgarcia         English                 199
+      2            WingsOfFire    AbdulKalam           Marathi                 299
+      4           Ramcharit      Aanandsagar           Hindi                   500
+     3           Ramayna           valmiki               sanskrit               800
+
+select *from booksdetails LIMIT 3;
+book_id              title             author             Language              price
+      1             Ikigai            Hectorgarcia      English                   199
+      2            WingsOfFire       AbdulKalam         Marathi                   299
+      3           Ramayna             valmiki           sanskrit                  800
+select title AS bookname from booksdetails;
+bookname
+Ikigai
+WingsOfFire
+Ramcharit
+ Ramayna
+
+ select *from booksdetails where price BETWEEN 100 AND 500;
+book_id              title             author               Language              price
+      1              Ikigai        Hectorgarcia            English                  199
+      2            WingsOfFire    AbdulKalam              Marathi                 299
+      4             Ramcharit      Aanandsagar            Hindi                   500
+
+exit;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
